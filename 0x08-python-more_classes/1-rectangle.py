@@ -4,7 +4,6 @@
 class Rectangle:
     """ 
     defines a rectangle by: (based on 0-rectangle.py) 
-    Attributes: width(int) & hight(int)
 
     """
 
@@ -12,7 +11,7 @@ class Rectangle:
         self.width = width
         self.height = height
 
-    """ WIDTH """
+    """ Width """
     @property
     def width(self):
         return (self.__width)
@@ -25,7 +24,7 @@ class Rectangle:
             raise ValueError("width must be >= 0")
         self.__width = value
 
-    """ HEIGHT """
+    """ Height """
     @property
     def height(self):
         return (self.__height)
