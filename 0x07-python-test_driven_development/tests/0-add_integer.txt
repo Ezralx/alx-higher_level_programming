@@ -1,151 +1,95 @@
-# The ``0-add_integer`` module
-====================================================
+The ``0-add_integer`` module
+============================
 
-How to use 0-add_integer.py
-====================================================
-This library is contain only one function called
-``add_integer()``.
+Using ``add_integer``
+---------------------
 
-First Import ``add_integer`` from the 0-add_integer`` module:
-
+Importing function from the module:
     >>> add_integer = __import__('0-add_integer').add_integer
 
+Adding 4 and 5
+    >>> add_integer(4, 5)
+    9
 
-passing both arguments as integers:
-
-   >>> add_integer(1, 3)
-   4
-Passing  both arguments as negative integers:
-
-   >>> add_integer(-5, -3)
-   -8
-passing with only one argument as integers:
-
-   >>> add_integer(2)
-   100
-
-passing  no arguments:
-
-   >>> add_integer()
-   Traceback (most recent call last):
-   ---
-   TypeError: a must be an integer
-
-passing  combination of integer and floats:
-
-   >>> add_integer(2, 3.1)
-   5
-
-   >>> add_integer(2.0, 1)
-   3
-
-passing both arguments as floats:
-
-   >>> add_integer(3.1, 1.2)
-   4
-
-passing both arguments as negative floats:
-
-   >>> add_integer(-3.1, -1.2)
-   -4
-
-passing arguments with as negative float and the other as negative integer:
-
-   >>> add_integer(-1.1, -3)
-   -4
-
-passing  argument with one as positive and the other as negative:
-
-   >>> add_integer(45, -15.4)
-   30
-
-passing  argument with both  zero:
-
-   >>> add_integer(0.0, 0)
-   0
-passing arguments with two bools.
-    >>> add_integer(False, True)
+Subtracting 10 and 9
+    >>> add_integer(10, -9)
     1
-passing arguments with two bools.
-    >>> add_integer(True, True)
+
+Adding 98 and 2.1 
+    >>> add_integer(2.1)
+    100
+
+Subtracting 7.3 and 3
+	    >>> add_integer(7.3, -3)
+	    4
+
+Adding an integer number and a string
+    >>> add_integer(7, "Love")
+    Traceback (most recent call last):
+	      ...
+    TypeError: b must be an integer
+
+Passing None
+    >>> add_integer(None)
+    Traceback (most recent call last):
+	      ...
+    TypeError: a must be an integer
+
+Adding a letter and a number
+    >>> add_integer('b', 3)
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+Adding two letters
+    >>> add_integer('N', 'C')
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+Adding a tuple
+    >>> add_integer((3, 1))
+    Traceback (most recent call last):
+              ...
+    TypeError: a must be an integer
+
+Adding a number and a list
+    >>> add_integer(4, [])
+    Traceback (most recent call last):
+	      ...
+    TypeError: b must be an integer
+
+Passing a string
+    >>> add_integer("YOLO")
+    Traceback (most recent call last):
+	      ...
+    TypeError: a must be an integer
+
+Adding two float numbers
+    >>> add_integer(1.1, 1.5)
     2
-passing arguments with two bools.
-    >>> add_integer(False, False)
-    0
-Passing one bool argument.
-    >>> add_integer(True, )
-    99
-Passing one bool argument.
-    >>> add_integer(False, )
-    98
-passing arguments with one bools and one integer.
-    >>> add_integer(8, True)
-    1
-Passing an undefined variable.
-    >>> add_integer(b) #doctest: +ELLIPSIS
+
+Subtracting 98 and 4
+    >>> add_integer(-4)
+    94
+
+Case Overflow:
+
+    >>> add_integer(float('inf'), 0)
     Traceback (most recent call last):
-        ...
-    NameError: name ... is not defined
+    	      ...
+    OverflowError: cannot convert float infinity to integer
 
-Test with float overflow:
+Case Overflow 2:
 
-   >>> add_integer(float('inf'), float('inf'))
-   ... # doctest: +ELLIPSIS
-   Traceback (most recent call last):
-   OverflowError: ...
-
-   >>> add_integer(-float('inf'), -float('inf'))
-   ... # doctest: +ELLIPSIS
-   Traceback (most recent call last):
-   OverflowError: ...
-
-Test with float NaN:
-
-   >>> add_integer(float('nan'), 3.1)
-   Traceback (most recent call last):
-   ValueError: cannot convert float NaN to integer
-
-Test both arguments as neither floats nor integers:
-
-   >>> add_integer("This", (1)) #doctest: +ELLIPSIS
-   Traceback (most recent call last):
-   TypeError:...
-
-Test combination of arguments with one being an integer and the other being
-neither float nor integer:
-
-   >>> add_integer(4, "str") #doctest: +ELLIPSIS
-   Traceback (most recent call last):
-   TypeError:...
-
-   >>> add_integer((1, 2), 3) #doctest: +ELLIPSIS
-   Traceback (most recent call last):
-   TypeError:...
-
-Test combination of arguments with one being a float and the other being
-neither float nor integer:
-
-   >>> add_integer(2.1, "str") #doctest: +ELLIPSIS
-   Traceback (most recent call last):
-   TypeError:...
-
-   >>> add_integer((3, 1), 3.3) #doctest: +ELLIPSIS
-   Traceback (most recent call last):
-   TypeError:...
-Passing only the second argument.
-    >>> add_integer(, 1)
+    >>> add_integer(float('inf'), float('-inf'))
     Traceback (most recent call last):
-        ...
-    SyntaxError: invalid syntax
+    	      ...
+    OverflowError: cannot convert float infinity to integer
 
-Passing only a symbol.
-    >>> add_integer($)
-    Traceback (most recent call last):
-        ...
-    SyntaxError: invalid syntax
+Case NaN:
 
-Passing only a symbol.
-    >>> add_integer(@)
+    >>> add_integer(0, float('nan'))
     Traceback (most recent call last):
-        ...
-    SyntaxError: invalid syntax
+    	      ...
+    ValueError: cannot convert float NaN to integer
