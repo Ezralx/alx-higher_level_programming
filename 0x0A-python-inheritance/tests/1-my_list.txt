@@ -1,10 +1,17 @@
 # 1-my_list.py
--------------------------------------------
+====================================================
 
-import
->>> MyList = __import__('1-my_list').MyList
->>>
--------------------------------------------
+``MyList`` can be instantiated with no arguments, which will return
+an empty list:
+
+::
+
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+    >>> type(my_list)
+    <class '1-my_list.MyList'>
+
+==========================================================    
 checking for  unique number
 
 >>> my_list = MyList()
