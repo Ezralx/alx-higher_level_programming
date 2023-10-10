@@ -37,7 +37,9 @@ Passing non-integers as size.
     TypeError: size must be an integer
 
     >>> print_square(True)
-    #
+    Traceback (most recent call last):
+        ...
+    TypeError: size must be an integer
 
 Passing None as size.
     >>> print_square(None)
@@ -62,6 +64,7 @@ Passing more than two arguments to print_square().
     Traceback (most recent call last):
         ...
     TypeError: print_square() takes 1 positional argument but ...
+
 Passing a negative number as size.
     >>> print_square(-10)
     Traceback (most recent call last):
