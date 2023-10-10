@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
     The 5-test_indentation module.
-    
+
 """
 
 
@@ -23,4 +23,3 @@ def text_indentation(text):
             [line.strip(" ") for line in text.split(delim)])
 
     print(text, end="")
-    
