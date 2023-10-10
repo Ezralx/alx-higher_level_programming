@@ -39,6 +39,10 @@ Dividing by a positive or negative float.
     >>> matrix_divided(matrix, -2.2)
     [[-0.45, -0.91, -1.36], [-1.82, -2.27, -2.73]]
 
+    >>> matrix = [[1, 2, 3], [4, 5, 6]]
+    >>> matrix_divided(matrix, float('inf'))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
+
     >>> matrix = [[1.1, 2, -3.3], [4, 5.5, -6]]
     >>> matrix_divided(matrix, 5.5)
     [[0.2, 0.36, -0.6], [0.73, 1.0, -1.09]]
