@@ -3,7 +3,7 @@
 """Defines unittests for models/square.py.
 
 Unittest classes:
-    
+
 """
 import io
 import sys
@@ -74,5 +74,3 @@ class TestSquare_instantiation(unittest.TestCase):
 
     def test_y_getter(self):
         self.assertEqual(0, Square(10).y)
-
-
