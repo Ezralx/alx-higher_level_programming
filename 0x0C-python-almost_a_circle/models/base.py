@@ -48,12 +48,12 @@ class Base:
             **dictionaries (dict): Key/value pairs of attributes to initialize.
         """
         if dictionaries and dictionaries != {}:
-              if cls.__name__ == "Rectangle":
-                  new = cls(1,1)
-              else:
-                  new = cls(1)
-        new.update(**dictionaries)
-                  
+            if cls.__name__ == "Rectangle":
+                new = cls(1, 1)
+            else:
+                new = cls(1)
+                new.update(**dictionaries)
+
         return new
 
     @classmethod
