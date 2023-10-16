@@ -41,6 +41,22 @@ class Base:
         return json.dumps(list_dictionaries)
 
     @classmethod
+    def create(cls, **dictionaries):
+        """Return the class instantied from dictionary of attributes.
+
+        Args:
+            **dictionaries (dict): Key/value pairs of attributes to initialize.
+        """
+        if dictionaries and dictionaries != {}:
+              if cls.__name__ == "Rectangle":
+                  new = cls(1,1)
+              else:
+                  new = cls(1)
+        new.update(**dictionaries)
+                  
+        return new
+
+    @classmethod
     def save_to_file(cls, list_objs):
         """Write the JSON serialization of a list of objects to a file.
 
