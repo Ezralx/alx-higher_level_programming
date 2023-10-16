@@ -68,21 +68,22 @@ class Base:
         if json_string is None or json_string == "[]":
             return []
         return json.loads(json_string)
+
     @staticmethod
     def draw(list_rectangles, list_squares):
         """ Draw Rectangles and Squares using turtle module.
-            
+
             Args:list_rectangles(list): A list of Rectangle objects to draw.
-                 
+
         """
         turt = turtle.Turtle()
-        
+
         turt.screen.bgcolor("black")
-        
+
         turt.pensize(3)
         turt.shape("turtle")
-        
-        turt.color("white") 
+
+        turt.color("white")
         for rect in list_rectangles:
             turt.showturtle()
             turt.up()
@@ -93,8 +94,7 @@ class Base:
                 turt.left(90)
                 turt.forward(rect.height)
                 turt.left(90)
-    
-              
+
         for rect in list_squares:
             turt.showturtle()
             turt.up()
@@ -106,7 +106,5 @@ class Base:
                 turt.forward(rect.height)
                 turt.left(90)
                 turt.hideturtle()
-        
+
         turtle.exitonclick()
-                
-        
