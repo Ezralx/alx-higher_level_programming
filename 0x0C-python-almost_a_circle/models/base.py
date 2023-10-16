@@ -52,7 +52,7 @@ class Base:
                 new = cls(1, 1)
             else:
                 new = cls(1)
-                new.update(**dictionaries)
+            new.update(**dictionaries)
 
         return new
 
