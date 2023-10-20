@@ -1,5 +1,4 @@
 #!/usr/bin/python3
-
 """Defines unittests for models/square.py.
 
 Unittest classes:
@@ -10,6 +9,7 @@ from unittest.mock import patch
 import unittest
 from models.base import Base
 from models.square import Square
+
 
 class TestSquare_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Square class."""
@@ -100,7 +100,7 @@ class TestSquare_instantiation(unittest.TestCase):
     def test_str_(self):
         self.assertEqual(Square(1, 3, 4, 5).__str__(),
                          "[Square] (5) 3/4 - 1")
-    
+
     def test_square_display(self):
         s = Square(2)
         with patch('sys.stdout', new=StringIO()) as output:

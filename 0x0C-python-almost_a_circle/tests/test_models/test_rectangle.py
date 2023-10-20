@@ -98,13 +98,13 @@ class TestRectangle_instantiation(unittest.TestCase):
         r = Rectangle(5, 7, 7, 5, 1)
         r.y = 10
         self.assertEqual(10, r.y)
-    
+
     def test_width_type(self):
         self.assertRaises(TypeError, Rectangle, "1", 2)
 
     def test_height_type(self):
         self.assertRaises(TypeError, Rectangle, 1, "2")
-        
+
     def test_x_type(self):
         self.assertRaises(TypeError, Rectangle, 1, 2, "3", 4, 7)
 
@@ -118,17 +118,17 @@ class TestRectangle_instantiation(unittest.TestCase):
     def test_height_value(self):
         self.assertRaises(ValueError, Rectangle, 1, 0)
         self.assertRaises(ValueError, Rectangle, 1, -1)
-        
+
     def test_x_value(self):
         self.assertRaises(ValueError, Rectangle, 1, 2, -1, 4, 7)
 
     def test_y_value(self):
         self.assertRaises(ValueError, Rectangle, 1, 2, 3, -4, 7)
-    
+
     def test_rectangle_area(self):
         r = Rectangle(3, 5)
         self.assertEqual(r.area(), 15)
-    
+
     def test_str_(self):
         self.assertEqual(Rectangle(1, 2, 3, 4, 5).__str__(),
                          "[Rectangle] (5) 3/4 - 1/2")
