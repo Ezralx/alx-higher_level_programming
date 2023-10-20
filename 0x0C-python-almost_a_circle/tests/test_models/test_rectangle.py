@@ -4,8 +4,8 @@
 Unittest classes
 
 """
-import io
-import sys
+from io import StringIO
+from unittest.mock import patch
 import unittest
 from models.base import Base
 from models.rectangle import Rectangle
@@ -124,3 +124,22 @@ class TestRectangle_instantiation(unittest.TestCase):
 
     def test_y_value(self):
         self.assertRaises(ValueError, Rectangle, 1, 2, 3, -4, 7)
+    
+    def test_str_(self):
+        self.assertEqual(Rectangle(1, 2, 3, 4, 5).__str__(),
+                         "[Rectangle] (5) 3/4 - 1/2")
+
+    def test_rectangle_display(self):
+        s = Rectangle(1, 2)
+        with patch('sys.stdout', new=StringIO()) as output:
+            exp = "#\n#\n"
+            s.display()
+            got = output.getvalue()
+            self.assertEqual(got, exp)
+
+        s = Rectangle(1, 2, 1, 1)
+        with patch('sys.stdout', new=StringIO()) as output:
+            exp = "\n #\n #\n"
+            s.display()
+            got = output.getvalue()
+            self.assertEqual(got, exp)

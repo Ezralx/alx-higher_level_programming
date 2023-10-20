@@ -5,12 +5,11 @@
 Unittest classes:
 
 """
-import io
-import sys
+from io import StringIO
+from unittest.mock import patch
 import unittest
 from models.base import Base
 from models.square import Square
-
 
 class TestSquare_instantiation(unittest.TestCase):
     """Unittests for testing instantiation of the Square class."""
@@ -86,9 +85,29 @@ class TestSquare_instantiation(unittest.TestCase):
 
     def test_size_value(self):
         self.assertRaises(ValueError, Square, 0)
+        self.assertRaises(ValueError, Square, -3)
 
     def test_x_value(self):
         self.assertRaises(ValueError, Square, 1, -1, 4, 7)
 
     def test_y_value(self):
         self.assertRaises(ValueError, Square, 1, 3, -4, 7)
+
+    def test_str_(self):
+        self.assertEqual(Square(1, 3, 4, 5).__str__(),
+                         "[Square] (5) 3/4 - 1")
+    
+    def test_square_display(self):
+        s = Square(2)
+        with patch('sys.stdout', new=StringIO()) as output:
+            exp = "##\n##\n"
+            s.display()
+            got = output.getvalue()
+            self.assertEqual(got, exp)
+
+        s = Square(2, 1, 1)
+        with patch('sys.stdout', new=StringIO()) as output:
+            exp = "\n ##\n ##\n"
+            s.display()
+            got = output.getvalue()
+            self.assertEqual(got, exp)
