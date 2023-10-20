@@ -125,6 +125,10 @@ class TestRectangle_instantiation(unittest.TestCase):
     def test_y_value(self):
         self.assertRaises(ValueError, Rectangle, 1, 2, 3, -4, 7)
     
+    def test_rectangle_area(self):
+        r = Rectangle(3, 5)
+        self.assertEqual(r.area(), 15)
+    
     def test_str_(self):
         self.assertEqual(Rectangle(1, 2, 3, 4, 5).__str__(),
                          "[Rectangle] (5) 3/4 - 1/2")

@@ -87,6 +87,10 @@ class TestSquare_instantiation(unittest.TestCase):
         self.assertRaises(ValueError, Square, 0)
         self.assertRaises(ValueError, Square, -3)
 
+    def test_square_area(self):
+        r = Square(3)
+        self.assertEqual(r.area(), 9)
+
     def test_x_value(self):
         self.assertRaises(ValueError, Square, 1, -1, 4, 7)
 
