@@ -113,9 +113,11 @@ class TestRectangle_instantiation(unittest.TestCase):
 
     def test_width_value(self):
         self.assertRaises(ValueError, Rectangle, 0, 2)
+        self.assertRaises(ValueError, Rectangle, -1, 2)
 
     def test_height_value(self):
         self.assertRaises(ValueError, Rectangle, 1, 0)
+        self.assertRaises(ValueError, Rectangle, 1, -1)
         
     def test_x_value(self):
         self.assertRaises(ValueError, Rectangle, 1, 2, -1, 4, 7)
