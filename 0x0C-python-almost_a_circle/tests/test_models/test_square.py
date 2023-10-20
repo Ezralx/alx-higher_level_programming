@@ -75,26 +75,20 @@ class TestSquare_instantiation(unittest.TestCase):
     def test_y_getter(self):
         self.assertEqual(0, Square(10).y)
 
-    def test_width_type(self):
-        self.assertRaises(TypeError, Square, "1", 2)
+    def test_size_type(self):
+        self.assertRaises(TypeError, Square, "1")
 
-    def test_height_type(self):
-        self.assertRaises(TypeError, Square, 1, "2")
-        
     def test_x_type(self):
-        self.assertRaises(TypeError, Square, 1, 2, "3", 4, 7)
+        self.assertRaises(TypeError, Square, 1, "3", 4, 7)
 
     def test_y_type(self):
-        self.assertRaises(TypeError, Square, 1, 2, 3, "4", 7)
+        self.assertRaises(TypeError, Square, 1, 3, "4", 7)
 
-    def test_width_value(self):
-        self.assertRaises(ValueError, Square, 0, 2)
+    def test_size_value(self):
+        self.assertRaises(ValueError, Square, 0)
 
-    def test_height_value(self):
-        self.assertRaises(ValueError, Square, 1, 0)
-        
     def test_x_value(self):
-        self.assertRaises(ValueError, Square, 1, 2, -1, 4, 7)
+        self.assertRaises(ValueError, Square, 1, -1, 4, 7)
 
     def test_y_value(self):
-        self.assertRaises(ValueError, Square, 1, 2, 3, -4, 7)
+        self.assertRaises(ValueError, Square, 1, 3, -4, 7)
