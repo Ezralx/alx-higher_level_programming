@@ -64,20 +64,20 @@ class TestRectangle_instantiation(unittest.TestCase):
             print(Rectangle(5, 5, 0, 0, 1).__y)
 
     def test_width_getter(self):
-        r = Rectangle(5, 7, 7, 5, 1)
+        r = Rectangle(5, 7)
         self.assertEqual(5, r.width)
 
     def test_width_setter(self):
-        r = Rectangle(5, 7, 7, 5, 1)
+        r = Rectangle(5, 7)
         r.width = 10
         self.assertEqual(10, r.width)
 
     def test_height_getter(self):
-        r = Rectangle(5, 7, 7, 5, 1)
+        r = Rectangle(5, 7)
         self.assertEqual(7, r.height)
 
     def test_height_setter(self):
-        r = Rectangle(5, 7, 7, 5, 1)
+        r = Rectangle(5, 7)
         r.height = 10
         self.assertEqual(10, r.height)
 
